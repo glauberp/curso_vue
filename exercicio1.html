@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Exercicio 1 - Glauber Pereira</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="vue.js"></script>
 </head>
 <body>
     <h1><span style="color:red;">Exercicio 1 - Glauber Pereira</span></h1>
@@ -51,6 +51,7 @@
 
                     if(this.nome === '' && this.localSelecionado === '' && this.atividades === '') {
                         alert('selecione todas as opções');
+                        this.exibeResultado = false;
                     }else {
                         this.exibeResultado = true;
                     }
