@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Curso Vue.js</title>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+       <table border="1" style="width: 100%" name="resultados">
+           <thead>
+               <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Cargo</th>
+                    <th scope="col">Unidade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="funcionario in funcionarios">
+                    <td>{{funcionario.nome}}</td>
+                    <td>{{funcionario.cargo}}</td>
+                    <td>{{funcionario.unidade}}</td>
+                </tr>
+            </tbody>
+       </table>
+    </div>
+    <script type="text/javascript">
+        Vue.component('titulo', {
+            //props: ['texto', 'cor'],
+            props: {
+                texto: {
+                    type: String, 
+                    default: 'Texto de exemplo'
+                }, 
+                cor: {
+                    type: String, 
+                    default: 'red'
+                }
+            }, 
+            template: '<h1 :style="{color: cor}">{{texto}}</h1>'});
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                titulo: 'Curso de Vue.js - Exercício 1',
+                unidades: [{
+                        'nome': 'Sede',
+                        'codigo': "1"
+                    },
+                    {
+                        'nome': 'Tupis',
+                        'codigo': "2"
+                    },
+                    {
+                        'nome': 'Bhtrans',
+                        'codigo': "3"
+                    }
+                ],
+                unidadeSelecionada: "",
+                nome: "",
+                descritivo: "",
+                mostraResultado: false, 
+                funcionarios: [{
+                        'nome': 'Paulo1',
+                        'cargo': 'Analista', 
+                        'unidade': 'Tupis'
+                    },
+                    {
+                        'nome': 'Natália',
+                        'cargo': 'Redatora', 
+                        'unidade': 'Fazenda'
+                    }
+                ]
+            },
+            methods: {
+                mostraDados() {
+                    if ((this.nome && this.descritivo && this.unidadeSelecionada) !== '') {
+                        this.mostraResultado = true;
+                    } else {
+                        alert('Favor preencher todos os campos');
+                        this.mostraResultado = false;
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
