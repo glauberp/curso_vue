@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>V-for</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <select v-model="cidadeSelecionada" name="selectcidade" id="selectcidade">
+            <option value="">Selecione Uma Opção</option>
+            <option :value="cidade.codigo" v-for="cidade in cidades" v-text="cidade.nome"></option>
+        </select>
+        <input type="button" v-on:click="mostraCodigoSelect" value="Mostrar" />
+        <h3>Cidade Slecionada: <span v-text="cidadeSelecionada"></span></h3>
+    </div>
+
+    <script type="text/javascript">
+        var app = new Vue({
+            el:'#app', 
+            data: {
+                cidades: [{'nome':'Belo Horizonte', 'codigo':31}, 
+                {'nome':'São Paulo', 'codigo':11}, 
+                {'nome':'Rio de Janeiro', 'codigo':21}],
+                cidadeSelecionada: ''
+            }, 
+            methods: {
+                mostraCodigoSelect(){
+                    if(this.cidadeSelecionada === '') {
+                        alert('selecione uma opção');
+                    }else {
+                        alert(this.cidadeSelecionada);
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

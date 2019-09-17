@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercicio 1 - Glauber Pereira</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <h1><span style="color:red;">Exercicio 1 - Glauber Pereira</span></h1>
+    <div id="app">
+        <br>
+        Nome:
+        <br><br>
+        <input type="text" v-model="nome" name="inputNome" id="inputNome">
+        <br><br><br>
+        Em qual unidade você está alocado?
+        <br><br>
+        <select v-model="localSelecionado" name="inputLocal" id="inputLocal">
+            <option value="">Selecione Uma Opção</option>
+            <option :value="local.nome" v-for="local in locais" v-text="local.nome"></option>
+        </select>
+        <br><br><br>
+        Atividades na empresa: 
+        <br><br>
+        <textarea v-model="atividades" name="inputAtividades" id="inputAtividades" cols="30" rows="10"></textarea>
+        <br><br><br>
+        <input type="button" v-on:click="mostraResultado" value="Mostrar" />
+        <br><br><br>
+        <div v-if="exibeResultado" style="border-style: dotted;">
+            <h1><span style="color:red;">Resultado</span></h1><br>
+            Nome: {{nome}}<br>
+            Unidade: {{localSelecionado}} <br>
+            Atividades: {{atividades}} <br>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var app = new Vue({
+            el:'#app', 
+            data: {
+                nome:'', 
+                locais: [{'nome':'Sede'}, {'nome':'Tupis'}, {'nome':'Prefeitura'}], 
+                localSelecionado: '', 
+                atividades:'',
+                exibeResultado: false
+            }, 
+            methods: {
+                mostraResultado(){
+
+                    if(this.nome === '' && this.localSelecionado === '' && this.atividades === '') {
+                        alert('selecione todas as opções');
+                    }else {
+                        this.exibeResultado = true;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
