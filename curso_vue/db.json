@@ -1,0 +1,39 @@
+{
+  "registros": [
+    {
+      "id": 1,
+      "nome": "Paulo",
+      "cargo": "Analista",
+      "unidade": "Tupis",
+      "salario": 3000
+    },
+    {
+      "id": 2,
+      "nome": "Natália",
+      "cargo": "Redatora",
+      "unidade": "Fazenda",
+      "salario": 2000
+    },
+    {
+      "id": 3,
+      "nome": "Maria Clara",
+      "cargo": "Médica",
+      "unidade": "Sede",
+      "salario": 5000
+    },
+    {
+      "nome": "Glauber",
+      "unidade": "1",
+      "cargo": "analista",
+      "salario": 2000,
+      "id": 4
+    },
+    {
+      "nome": "Maíra",
+      "unidade": "3",
+      "cargo": "analista",
+      "salario": 2000,
+      "id": 5
+    }
+  ]
+}
